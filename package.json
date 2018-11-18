@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "bottender": "0.15.14",
+    "mongodb": "^3.1.10",
     "nodemon": "1.18.6"
   }
 }
