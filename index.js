@@ -13,6 +13,7 @@ const { MessengerBot, MessengerHandler } = require('bottender');
 const { createServer } = require('bottender/express');
 
 const config = require('./bottender.config').messenger;
+const PORT = process.env.PORT || 5000
 
 const bot = new MessengerBot({
   accessToken: process.env.FACEBOOK_ACCESSTOKEN_CITYAI,
@@ -34,6 +35,6 @@ bot.onEvent(handler);
 
 const server = createServer(bot, { verifyToken: process.env.FACEBOOK_VERIFY_TOKEN });
 
-server.listen(5000, () => {
-  console.log('server is running on 5000 port...');
+server.listen(PORT, () => {
+  console.log(`server is running on ${PORT} port...`);
 });
