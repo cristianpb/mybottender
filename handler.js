@@ -20,8 +20,15 @@ const handler = new MessengerHandler()
       console.log(e);
     }
   })
-  .onText(/yo/i, async context => {
+  .onText(/(yo|hello)/i, async context => {
     await context.sendText('Hello there');
+  })
+  .onText(/(help|menu|info)/i, async context => {
+    await context.sendText(`
+    hello/yo: to say hello
+    help/menu/info: show help
+    news: tell one recent news
+    `);
   })
   .onEvent(async context => {
     await context.sendText("I don't know what you say.");
